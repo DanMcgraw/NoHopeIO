@@ -10,22 +10,26 @@ export default class ConnectScene extends Phaser.Scene {
 	}
 
 	preload() {
-		this.load.spritesheet('player', 'assets/images/characters/player.png',
-			{frameWidth: 48, frameHeight: 32});
+		this.load.spritesheet('player', 'assets/images/characters/player.png', {
+			frameWidth: 48,
+			frameHeight: 32,
+		});
 
-		this.load.spritesheet('zombie1', 'assets/images/characters/player.png',
-				{frameWidth: 48, frameHeight: 32});
+		this.load.spritesheet('zombie1', 'assets/images/characters/player.png', {
+			frameWidth: 48,
+			frameHeight: 32,
+		});
+		this.load.image('crosshair', 'assets/images/misc/crosshair.svg');
 	}
 
 	create() {
 		this.add.sprite(400, 300, 'phaserLogo');
 		setTimeout(() => {
-			this.scene.start('Main', {socket: this.socket});
+			this.scene.start('Main', { socket: this.socket });
 		}, 300);
 	}
 
 	update() {
 		//simulate connecting to server for now
-
 	}
 }

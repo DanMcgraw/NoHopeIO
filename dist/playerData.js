@@ -8,6 +8,7 @@ class PlayerData {
         this.y = y;
         this.rotation = rotation;
     }
+    static getRandomPlayerName() { }
 }
 exports.default = PlayerData;
 //# sourceMappingURL=playerData.js.map

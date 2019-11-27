@@ -1,6 +1,6 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 var _a;
+Object.defineProperty(exports, "__esModule", { value: true });
 //Static library for phaser usage
 require("phaser");
 class PhaserLib {
@@ -16,6 +16,7 @@ class PhaserLib {
         return result;
     }
 }
+exports.default = PhaserLib;
 PhaserLib.Random = (_a = class {
         /* mti==N+1 means mt[N] is not initialized */
         constructor(seed = null) {
@@ -115,5 +116,4 @@ PhaserLib.Random = (_a = class {
     /* most significant w-r bits */
     _a.LOWER_MASK = 0x7fffffff,
     _a);
-exports.default = PhaserLib;
 //# sourceMappingURL=lib.js.map
