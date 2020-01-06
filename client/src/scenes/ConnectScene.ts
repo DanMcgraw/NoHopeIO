@@ -4,6 +4,9 @@ import PixelatePipeline from '../entities/PixelatePipeline';
  * This Scene will be used for connecting to the server, preloading assets and setting some initial values retrieved.
  */
 export default class ConnectScene extends Phaser.Scene {
+	public load: any;
+	public add: any;
+	public scene: any;
 	private socket: NetworkManager;
 	constructor(params) {
 		super(params);

@@ -1,6 +1,11 @@
 //Static library for phaser usage
 
 export default class PhaserLib {
+	public init_genrand: any;
+	public mt: any;
+	public mti: any;
+	public _nextInt32: any;
+
   public static findNewPoint(location: Phaser.Math.Vector2, angle: number, distance: any): Phaser.Math.Vector2 {
     var result: Phaser.Math.Vector2 = new Phaser.Math.Vector2;
 

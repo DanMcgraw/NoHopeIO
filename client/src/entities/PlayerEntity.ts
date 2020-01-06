@@ -4,6 +4,17 @@ import BulletEntity from './BulletEntity';
 import PhaserLib from '../lib';
 
 export class PlayerEntity extends BaseEntitySprite {
+	public setDisplaySize: any;
+	public setScale: any;
+	public setDepth: any;
+	public height: any;
+	public originX: any;
+	public originY: any;
+	public displayOriginY: any;
+	public rotation: any;
+	public x: any;
+	public y: any;
+	public setFrame: any;
   private readonly PLAYER_UPDATE_RATE: number = 12;
   public playerBullets: any;
   private readonly PLAYER_DEFAULT_SPEED: number = 0.1475;

@@ -28,7 +28,7 @@ module.exports = {
         "phaser": "Phaser.min"
     },
     optimization: {
-    minimizer: [
+    /* minimizer: [
       new UglifyJsPlugin({
         uglifyOptions: {
           output: {
@@ -36,6 +36,6 @@ module.exports = {
           }
         }
       })
-    ]
+    ] */
   }
 };

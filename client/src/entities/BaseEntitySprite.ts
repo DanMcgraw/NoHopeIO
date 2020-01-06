@@ -2,6 +2,10 @@ import {EntityDirection} from './stateMembers/EntityDirection';
 import PhaserLib from '../lib';
 
 export default class BaseEntitySprite extends Phaser.GameObjects.Sprite {
+	public setOrigin: any;
+	public anims: any;
+	public body: any;
+	public displayOriginX: any;
 	private currentScene: Phaser.Scene;
 	private vx: number;
 	private vy: number;

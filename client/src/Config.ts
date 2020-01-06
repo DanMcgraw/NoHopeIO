@@ -33,7 +33,7 @@ export default new Config({
     antialias: true,
     pixelArt: true,
     roundPixels: true,
-    transparent: false,
+    transparent: true,
     clearBeforeRender: true,
     premultipliedAlpha: false,
     failIfMajorPerformanceCaveat: false,

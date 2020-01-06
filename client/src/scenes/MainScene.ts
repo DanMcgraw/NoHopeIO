@@ -8,9 +8,17 @@ import PlayerData from "../managers/playerData";
 import PhaserLib from '../lib';
 import PixelatePipeline from '../entities/PixelatePipeline';
 import BulletEntity from "../entities/BulletEntity";
+import Pipelines from '../pipelines';
 
 
 export default class MainScene extends NetworkScene {
+	public game: any;
+	public cameras: any;
+	public cameraView: Phaser.Cameras.Scene2D.Camera;
+	public make: any;
+	public physics: any;
+	public add: any;
+	public tweens: any;
 private enemyZombies: any;
 	public player: PlayerEntity;
 	private socket: NetworkManager;
@@ -18,16 +26,19 @@ private enemyZombies: any;
 	private times: number[];
 	private angles: number[];
 	public map: Phaser.Tilemaps.Tilemap;
+	public grayscalePipeline: Pipelines;
 
 	constructor() {
 		super({
 			key: 'Main',
 		});
+
 	}
 
 	init(): void {
 		this.socket = new NetworkManager();
 		this.socket.connectUser();
+
 
 	}
 
@@ -36,6 +47,12 @@ private enemyZombies: any;
 	}
 
 	create(): void {
+		//this.cameraView = this.cameras.add(0, 0, 300, 300);
+		this.grayscalePipeline = (this.game.renderer as Phaser.Renderer.WebGL.WebGLRenderer).addPipeline('Grayscale', new Pipelines({game: this.game}))as Pipelines;
+
+(this.cameras.main as Phaser.Cameras.Scene2D.Camera).setRenderToTexture(this.grayscalePipeline);
+//(this.cameraView as Phaser.Cameras.Scene2D.Camera).setRenderToTexture(this.grayscalePipeline);
+
 		this.map = this.make.tilemap({ key: 'maps'});
 	 var tileset = this.map.addTilesetImage('cybernoid','tilesets');
 	 var layer = this.map.createStaticLayer("background", tileset, 0, 0); // layer index, tileset, x, y
@@ -82,8 +99,8 @@ layer.setScale(1);
         });
 
 	this.cameras.main.startFollow(this.player.offsetLocation,true,0.03,0.03,0,0);
-	this.cameras.main.alpha=1;
-//	this.cameras.main.setZoom(0.4);
+	//this.cameras.main.alpha=1;
+	this.cameras.main.setZoom(0.4);
 	var spotlight = this.make.sprite({
         x: 160,
         y: 160,
@@ -91,8 +108,8 @@ layer.setScale(1);
         add: false
     });
 		spotlight.scale = 2.5;
-		let test:(Phaser.Cameras.Scene2D.BaseCamera);
-		this.cameras.main.setMask(new Phaser.Display.Masks.BitmapMask(this, spotlight));
+		//let test:(Phaser.Cameras.Scene2D.BaseCamera);
+		//this.cameras.main.setMask(new Phaser.Display.Masks.BitmapMask(this, spotlight));
 
 this.enemyZombies = this.add.group({ classType: ZombieEntity as any, runChildUpdate: true });
 		let zombie = this.enemyZombies.get();
@@ -125,6 +142,7 @@ console.log("zombie")
 	}
 
 	update(time: number, delta: number) {
+		this.grayscalePipeline.update(time);
 		this.player.update(delta);
 		this.cameras.main.setRotation(Math.sin(this.player.y/200)/12+Math.cos(this.player.x/200)/12);
 		//if(time%10==1)

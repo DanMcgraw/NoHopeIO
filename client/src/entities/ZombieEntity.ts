@@ -4,6 +4,13 @@ import { EntityDirection } from './stateMembers/EntityDirection';
 
 
 export class ZombieEntity extends BaseEntitySprite {
+	public setTexture: any;
+	public tint: any;
+	public width: any;
+	public height: any;
+	public x: any;
+	public y: any;
+	public rotation: any;
   private birthTime;
   public tween;
   public tweenRotation;
@@ -32,7 +39,7 @@ export class ZombieEntity extends BaseEntitySprite {
 this.birthTime = d.getTime();
     }
 
-    public update(time:number,delta:number): void{
+    public update(time:number,delta?:number): void{
       delta/=17;
 
     }

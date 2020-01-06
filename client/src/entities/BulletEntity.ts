@@ -3,6 +3,16 @@ import MainScene from "../scenes/MainScene";
 
 
 export default class BulletEntity extends Phaser.GameObjects.Graphics {
+	public scene: any;
+	public setActive: any;
+	public destroy: any;
+	public setVisible: any;
+	public setDepth: any;
+	public x: any;
+	public y: any;
+	public clear: any;
+	public lineStyle: any;
+	public strokeLineShape: any;
   private owner;
   private line: Phaser.Geom.Line;
   private rayLine: Phaser.Geom.Line;
@@ -48,7 +58,7 @@ return;
       this.setDepth(2);
     }
 
-    public update(time:number,delta:number): void{
+    public update(time:number,delta?:number): void{
       delta/=17;
       let scene: MainScene = (this.scene as MainScene);
 
