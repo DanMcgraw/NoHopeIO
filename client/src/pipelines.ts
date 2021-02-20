@@ -22,7 +22,7 @@ export default class Pipelines extends Phaser.Renderer.WebGL.Pipelines.TextureTi
                       vec2 st = vec2(gl_FragCoord.x/resolution.x,gl_FragCoord.y/resolution.y);
                       vec4 color = texture2D(uMainSampler, outTexCoord);
                       vec3 gray = vec3(dot(vec3(0.1126,0.7152,0.0722), color.rgb));
-    vec4 color2 = vec4((color.rgb + (gray - color.rgb) * 0.4),color.a);
+                      vec4 color2 = vec4((color.rgb + (gray - color.rgb) * 0.4)-0.15,color.a);
                       gl_FragColor = color2*vec4(makeCircle(st,vec2(tx,ty),vec3(1.0)),1.0);
                   }
             `
