@@ -22,15 +22,22 @@ export class ZombieEntity extends BaseEntitySprite {
   public tween;
   public tweenRotation;
 
+  private createAnimations(): void {
+    this.setAnimation({
+      key: 'zwalk',
+      frameRate: 12,
+      repeat: -1
+    }, 0, 4);
+  }
+
   constructor(scene: Phaser.Scene, x: number, y: number, key: string, frame: number) {
     super(scene, x, y, key, frame);
     // ...
     this.setTexture("zombie1");
     this.setOrigin(0.5, 0.624);
+    this.createAnimations();
 
-
-
-    this.tint = 0x299611;
+    //this.tint = 0x299611;
     //this.blendMode = Phaser.BlendModes.ADD;
 
     this.speed = 35;
@@ -39,6 +46,8 @@ export class ZombieEntity extends BaseEntitySprite {
     //this.setOrigin(0.0);
   }
 
+
+
   public Instantiate(location: Phaser.Math.Vector2, angle: number, velocity: number): void {
     this.x = location.x;
     this.y = location.y;
@@ -46,6 +55,7 @@ export class ZombieEntity extends BaseEntitySprite {
     this.rotation = (angle + 90) * Math.PI / 180;
     var d = new Date();
     this.birthTime = d.getTime();
+    this.anims.play('zwalk', true);
   }
 
   public update(time: number, delta?: number): void {

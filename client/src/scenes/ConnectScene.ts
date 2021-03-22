@@ -17,7 +17,7 @@ export default class ConnectScene extends Phaser.Scene {
 		this.load.spritesheet('player', 'assets/images/characters/player.png',
 			{frameWidth: 47, frameHeight: 32, spacing: 1});
 
-		this.load.spritesheet('zombie1', 'assets/images/characters/player.png',
+		this.load.spritesheet('zombie1', 'assets/images/characters/Zombie_walk.png',
 				{frameWidth: 48, frameHeight: 32});
 
 		this.load.image('tilesets', 'assets/images/tilesets/out-extruded.png');
